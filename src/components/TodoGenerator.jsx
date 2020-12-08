@@ -7,11 +7,6 @@ export default class TodoGenerator extends Component {
 
     this.state = {
       todoText: "",
-      todo: {
-        id: "",
-        text: "",
-        done: false,
-      },
     };
   }
 
@@ -20,13 +15,12 @@ export default class TodoGenerator extends Component {
   };
 
   submitTodo = () => {
-    this.setState({
-      todo: {
-        id: uuidv4(),
-        text: this.state.todoText,
-        done: false
-      },
-    });
+    const todo = {
+      id: uuidv4(),
+      text: this.state.todoText,
+      done: false,
+    };
+    this.props.submitTodo(todo);
   };
 
   render() {
@@ -39,10 +33,6 @@ export default class TodoGenerator extends Component {
           onChange={this.onChangeText}
         />
         <button onClick={this.submitTodo}>add</button>
-        <br />
-        {this.state.todo.id}, 
-        {this.state.todo.text}, 
-        {this.state.todo.done}
       </div>
     );
   }
