@@ -20,7 +20,7 @@ export default class TodoGenerator extends Component {
       text: this.state.todoText,
       done: false,
     };
-    this.setState({todoText: ""})
+    this.setState({ todoText: "" });
     this.props.submitTodo(todo);
   };
 
