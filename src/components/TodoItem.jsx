@@ -1,23 +1,17 @@
 import React, { Component } from "react";
 
 export default class TodoItem extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      todo: {
-        id: "1234",
-        text: "this is the first todo",
-        done: false,
-      },
-    };
-  }
+  deleteTodo = (todoId) => {
+    this.props.deleteTodo(todoId);
+  };
 
   render() {
+    const todo = this.props.todo;
+
     return (
       <div>
-        <label>{this.props.todo.text}</label>
-        <button>x</button>
+        <label>{todo.text}</label>
+        <button onClick={() => this.deleteTodo(todo.id)}>x</button>
       </div>
     );
   }
