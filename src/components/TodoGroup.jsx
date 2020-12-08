@@ -3,18 +3,13 @@ import TodoItem from "./TodoItem";
 import { v4 as uuidv4 } from "uuid";
 
 export default class TodoGroup extends Component {
-  initArraySize = (size) => {
-    return Array.from(Array(size).keys());
-  };
-
   render() {
-    const size = this.props.size;
-    const initArraySize = this.initArraySize(size);
+    const todoArray = this.props.todoArray;
 
     return (
       <div>
-        {initArraySize.map(() => (
-          <TodoItem key={uuidv4()} />
+        {todoArray.map((todo) => (
+          <TodoItem key={uuidv4()} todo={todo}/>
         ))}
       </div>
     );

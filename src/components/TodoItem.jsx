@@ -16,7 +16,7 @@ export default class TodoItem extends Component {
   render() {
     return (
       <div>
-        <label>{this.state.todo.text}</label>
+        <label>{this.props.todo.text}</label>
         <button>x</button>
       </div>
     );
