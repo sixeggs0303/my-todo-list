@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import NotFound from "./components/NotFound";
 import TodoList from './components/TodoList'
@@ -18,9 +18,10 @@ function App() {
           <li><NavLink to="/done">go to done page</NavLink></li>
         </ul>
         <Switch>
-          <Route path="/done" component={DoneListContainer} />
+          <Route exact path="/done" component={DoneListContainer} />
           <Route exact path="/" component={TodoList} />
-          <Route component={NotFound} />
+          <Route exact path="/notFound" component={NotFound} />
+          <Redirect to="/notFound"/>
         </Switch>
       </BrowserRouter>
     </div>
