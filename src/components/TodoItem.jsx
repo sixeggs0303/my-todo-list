@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { deleteTodo } from "../api/todo";
 
 export default class TodoItem extends Component {
   deleteTodo = (todoId) => {
-    this.props.deleteTodo(todoId);
+    deleteTodo(todoId).then(() => this.props.deleteTodo(todoId));
   };
 
   toggleTodo = (todoId) => {
