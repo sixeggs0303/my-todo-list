@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { addTodo } from "../api/todo";
 
 export default class TodoGenerator extends Component {
   constructor(props) {
@@ -15,7 +16,10 @@ export default class TodoGenerator extends Component {
 
   submitTodo = () => {
     this.setState({ todoText: "" });
-    this.props.submitTodo(this.state.todoText);
+    addTodo(this.state.todoText).then((response) => {
+      console.log(response.data);
+      this.props.submitTodo(response.data);
+    });
   };
 
   render() {

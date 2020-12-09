@@ -1,15 +1,9 @@
 import { combineReducers } from "redux";
 import { SUBMIT, DELETE, TOGGLE, INIT_TODOS } from "./actionTypes";
-import { v4 as uuidv4 } from "uuid";
 
 const todoArray = (state = [], action) => {
   if (action.type === SUBMIT) {
-    const todo = {
-      id: uuidv4(),
-      text: action.payload,
-      done: false,
-    };
-    return state.concat(todo);
+    return state.concat(action.payload);
   }
   if (action.type === DELETE) {
     return state.filter((todo) => todo.id !== action.payload);

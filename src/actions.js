@@ -1,9 +1,9 @@
 import { DELETE, INIT_TODOS, SUBMIT, TOGGLE } from "./actionTypes";
 
-export const submitTodo = (todoText) => {
+export const submitTodo = (todo) => {
   return {
     type: SUBMIT,
-    payload: todoText,
+    payload: todo,
   };
 };
 

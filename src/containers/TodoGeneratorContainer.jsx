@@ -3,7 +3,7 @@ import { submitTodo } from "../actions";
 import TodoGenerator from "../components/TodoGenerator";
 
 const mapDispatchToProps = (dispatch) => ({
-  submitTodo: (todoText) => dispatch(submitTodo(todoText)),
+  submitTodo: (todo) => dispatch(submitTodo(todo)),
 });
 
 const TodoGeneratorContainer = connect(null, mapDispatchToProps)(TodoGenerator);
