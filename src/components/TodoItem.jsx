@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { deleteTodo } from "../api/todo";
+import { deleteTodo, updateTodo } from "../api/todo";
 
 export default class TodoItem extends Component {
   deleteTodo = (todoId) => {
     deleteTodo(todoId).then(() => this.props.deleteTodo(todoId));
   };
 
-  toggleTodo = (todoId) => {
-    this.props.toggleTodo(todoId);
+  toggleTodo = (todo) => {
+    updateTodo(todo).then(() => this.props.toggleTodo(todo.id));
   };
 
   renderTodoText = (todo) => {
@@ -22,7 +22,7 @@ export default class TodoItem extends Component {
 
     return (
       <div>
-        <label onClick={() => this.toggleTodo(todo.id)}>
+        <label onClick={() => this.toggleTodo(todo)}>
           {this.renderTodoText(todo)}
         </label>
         <button onClick={() => this.deleteTodo(todo.id)}>x</button>

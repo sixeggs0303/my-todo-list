@@ -9,7 +9,6 @@ export default class TodoGroup extends Component {
 
   componentDidMount() {
     getTodoList().then((response) => {
-      console.log(response.data);
       this.props.initTodos(response.data);
     });
   }

@@ -17,7 +17,6 @@ export default class TodoGenerator extends Component {
   submitTodo = () => {
     this.setState({ todoText: "" });
     addTodo(this.state.todoText).then((response) => {
-      console.log(response.data);
       this.props.submitTodo(response.data);
     });
   };
