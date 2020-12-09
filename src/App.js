@@ -1,8 +1,8 @@
 import { BrowserRouter, NavLink, Route, Switch } from 'react-router-dom';
 import './App.css';
+import NotFound from "./components/NotFound";
 import TodoList from './components/TodoList'
 import DoneListContainer from './containers/DoneListContainer'
-import NotFound from './components/NotFound'
 
 function App() {
   return (
