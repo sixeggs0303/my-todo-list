@@ -3,6 +3,8 @@ import { DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import React, { Component } from "react";
 import { deleteTodo, updateTodo } from "../api/todo";
 import "../css/TodoItemButton.css";
+import TodoLabelDropDownContainer from "../containers/TodoLabelDropDownContainer";
+import LabelGroup from "./LabelGroup";
 
 export default class TodoItem extends Component {
   deleteTodo = (todoId) => {
@@ -45,6 +47,14 @@ export default class TodoItem extends Component {
         >
           <CheckOutlined />
         </Button>
+
+        <div className="button-to-right">
+          <TodoLabelDropDownContainer todo={todo} />
+        </div>
+
+        <div className="button-to-right">
+          <LabelGroup labels={todo.labels} todo={todo} />
+        </div>
       </div>
     );
   }

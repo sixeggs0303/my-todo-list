@@ -19,9 +19,10 @@ export default class TodoGroup extends Component {
 
     return (
       <Row justify="center">
-        <Col span={10}>
+        <Col span={16}>
           <Divider orientation="center">Todo List</Divider>
           <List
+            size="large"
             bordered
             dataSource={todoArray}
             renderItem={(todo) => (

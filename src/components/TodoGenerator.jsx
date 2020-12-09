@@ -26,7 +26,7 @@ export default class TodoGenerator extends Component {
   render() {
     return (
       <Row justify="center" style={{ paddingTop: "15px" }}>
-        <Col span={10}>
+        <Col span={16}>
           <Search
             value={this.state.todoText}
             placeholder="type the text"
