@@ -1,5 +1,8 @@
+import { Button } from "antd";
+import { DeleteOutlined, CheckOutlined } from "@ant-design/icons";
 import React, { Component } from "react";
 import { deleteTodo, updateTodo } from "../api/todo";
+import "../css/TodoItemButton.css";
 
 export default class TodoItem extends Component {
   deleteTodo = (todoId) => {
@@ -7,6 +10,7 @@ export default class TodoItem extends Component {
   };
 
   toggleTodo = (todo) => {
+    console.log("toggled");
     updateTodo(todo).then(() => this.props.toggleTodo(todo.id));
   };
 
@@ -21,11 +25,26 @@ export default class TodoItem extends Component {
     const todo = this.props.todo;
 
     return (
-      <div>
-        <label onClick={() => this.toggleTodo(todo)}>
-          {this.renderTodoText(todo)}
-        </label>
-        <button onClick={() => this.deleteTodo(todo.id)}>x</button>
+      <div style={{ width: "100%" }}>
+        <label style={{ float: "left" }}>{this.renderTodoText(todo)}</label>
+
+        <Button
+          className="button-to-right"
+          shape="circle"
+          danger
+          onClick={() => this.deleteTodo(todo.id)}
+        >
+          <DeleteOutlined />
+        </Button>
+
+        <Button
+          className="button-to-right"
+          shape="circle"
+          type={todo.done ? "primary" : "dashed"}
+          onClick={() => this.toggleTodo(todo)}
+        >
+          <CheckOutlined />
+        </Button>
       </div>
     );
   }

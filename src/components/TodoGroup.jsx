@@ -1,3 +1,4 @@
+import { Col, Divider, List, Row } from "antd";
 import React, { Component } from "react";
 import { getTodoList } from "../api/todo";
 import TodoItemContainer from "../containers/TodoItemContainer";
@@ -17,11 +18,24 @@ export default class TodoGroup extends Component {
     const todoArray = this.props.todoArray;
 
     return (
-      <div>
-        {todoArray.map((todo) => (
+      <Row justify="center">
+        <Col span={10}>
+          <Divider orientation="center">Todo List</Divider>
+          <List
+            bordered
+            dataSource={todoArray}
+            renderItem={(todo) => (
+              <List.Item>
+                <TodoItemContainer key={todo.id} todo={todo} />
+              </List.Item>
+            )}
+          >
+            {/* {todoArray.map((todo) => (
           <TodoItemContainer key={todo.id} todo={todo} />
-        ))}
-      </div>
+        ))} */}
+          </List>
+        </Col>
+      </Row>
     );
   }
 }

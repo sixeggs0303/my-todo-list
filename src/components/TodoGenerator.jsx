@@ -1,3 +1,5 @@
+import { Col, Row } from "antd";
+import Search from "antd/lib/input/Search";
 import React, { Component } from "react";
 import { addTodo } from "../api/todo";
 
@@ -23,15 +25,27 @@ export default class TodoGenerator extends Component {
 
   render() {
     return (
-      <div>
-        <input
+      <Row justify="center" style={{ paddingTop: "15px" }}>
+        <Col span={10}>
+          <Search
+            value={this.state.todoText}
+            placeholder="type the text"
+            enterButton="Add"
+            size="large"
+            onChange={this.onChangeText}
+            onSearch={this.submitTodo}
+          />
+          {/* <input
           value={this.state.todoText}
           placeholder="type the text"
           type="text"
           onChange={this.onChangeText}
         />
-        <button onClick={this.submitTodo}>add</button>
-      </div>
+        <Button type="primary" onClick={this.submitTodo}>
+          add
+        </Button> */}
+        </Col>
+      </Row>
     );
   }
 }

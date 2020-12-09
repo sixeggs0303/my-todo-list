@@ -1,3 +1,4 @@
+import { Col, Divider, List, Row } from "antd";
 import React, { Component } from "react";
 
 export default class DoneList extends Component {
@@ -5,14 +6,17 @@ export default class DoneList extends Component {
     const doneTodoArray = this.props.doneTodoArray;
 
     return (
-      <div>
-        <h4>Done List</h4>
-        <ul>
-          {doneTodoArray.map((todoText) => (
-            <li>{todoText}</li>
-          ))}
-        </ul>
-      </div>
+      <Row justify="center">
+        <Col span={10}>
+          <Divider orientation="center">Done List</Divider>
+          <List
+            size="large"
+            bordered
+            dataSource={doneTodoArray}
+            renderItem={(todoText) => <List.Item>{todoText}</List.Item>}
+          ></List>
+        </Col>
+      </Row>
     );
   }
 }
