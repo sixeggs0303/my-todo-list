@@ -9,7 +9,7 @@ export default class TodoItem extends Component {
     this.props.toggleTodo(todoId);
   };
 
-  rednerTodoText = (todo) => {
+  renderTodoText = (todo) => {
     if (todo.done) {
       return <s>{todo.text}</s>;
     }
@@ -22,7 +22,7 @@ export default class TodoItem extends Component {
     return (
       <div>
         <label onClick={() => this.toggleTodo(todo.id)}>
-          {this.rednerTodoText(todo)}
+          {this.renderTodoText(todo)}
         </label>
         <button onClick={() => this.deleteTodo(todo.id)}>x</button>
       </div>

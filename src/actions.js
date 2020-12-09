@@ -1,9 +1,9 @@
 import { DELETE, SUBMIT, TOGGLE } from './actionTypes'
 
-export const submitTodo = (todo) => {
+export const submitTodo = (todoText) => {
   return {
     type: SUBMIT,
-    payload: todo
+    payload: todoText
   }
 }
 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TodoItemContainer from "../containers/TodoItemContainer";
-import { v4 as uuidv4 } from "uuid";
 
 export default class TodoGroup extends Component {
   initTodoArray = (todoArray) => {
@@ -13,7 +12,7 @@ export default class TodoGroup extends Component {
     return (
       <div>
         {todoArray.map((todo) => (
-          <TodoItemContainer key={uuidv4()} todo={todo} />
+          <TodoItemContainer key={todo.id} todo={todo} />
         ))}
       </div>
     );
