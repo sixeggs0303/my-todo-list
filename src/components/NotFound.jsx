@@ -1,10 +1,15 @@
+import { Result } from "antd";
 import React, { Component } from "react";
 
 export default class NotFound extends Component {
   render() {
     return (
       <div>
-        <h1>Page Not Found</h1>
+        <Result
+          status="404"
+          title="404"
+          subTitle="Sorry, the page you visited does not exist."
+        />
       </div>
     );
   }

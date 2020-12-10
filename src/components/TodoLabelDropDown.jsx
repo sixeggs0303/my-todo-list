@@ -32,7 +32,7 @@ export default class TodoLabelDropDown extends Component {
 
     return (
       <Dropdown overlay={menu}>
-        <Button>Label</Button>
+        <Button>Add Label</Button>
       </Dropdown>
     );
   }
